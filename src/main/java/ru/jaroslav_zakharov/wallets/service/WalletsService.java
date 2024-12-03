@@ -4,8 +4,8 @@ import ru.jaroslav_zakharov.wallets.dto.WalletBalanceDto;
 import ru.jaroslav_zakharov.wallets.dto.WalletOperationDto;
 
 public interface WalletsService {
-    void operationType(WalletOperationDto walletOperationDto);
-    void addDeposit();
-    void withdrawDeposit();
+    void operationTypeValidation(WalletOperationDto walletOperationDto);
+    void addDeposit(Long walletId, Double amount);
+    void withdrawDeposit(Long walletId, Double amount);
     WalletBalanceDto getBalanceById(Long walletId);
 }

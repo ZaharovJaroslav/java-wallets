@@ -4,7 +4,11 @@ package ru.jaroslav_zakharov.wallets.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class WalletOperationDto {
     @NotNull
     private Long id;

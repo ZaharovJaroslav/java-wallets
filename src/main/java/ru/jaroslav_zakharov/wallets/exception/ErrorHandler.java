@@ -6,7 +6,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 import java.time.LocalDateTime;
 
 @Slf4j
@@ -33,6 +32,13 @@ public class ErrorHandler {
     ErrorResponse handleRulesViolationException(RulesViolationException e) {
         return new ErrorResponse(HttpStatus.CONFLICT, "For the requested operation the conditions are not met.",
                 e.getMessage(), LocalDateTime.now());
+    }
 
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleInvalidRequestException(final InvalidRequestException e) {
+        log.warn("Incorrectly made request.");
+        return new ErrorResponse(HttpStatus.BAD_REQUEST, "Incorrectly made request.", e.getMessage(),
+                LocalDateTime.now());
     }
 }
