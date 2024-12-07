@@ -1,9 +1,7 @@
 package ru.jaroslav_zakharov.wallets.dto;
 
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,13 +9,12 @@ import lombok.Setter;
 @Setter
 public class WalletOperationDto {
     @NotNull
-    private Long id;
+    private Long walletId;
 
     @NotNull
     @NotBlank
-    private String operation;
+    private String operationType;
 
     @NotNull
-    @Size(min = 50, message = "Сумма не может быть меньше 50 рублей ")
     private Double amount;
 }

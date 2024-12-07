@@ -22,11 +22,11 @@ public class WalletsServiceImpl implements WalletsService {
 
     @Override
     public void operationTypeValidation(WalletOperationDto walletOperationDto) {
-        String operationType = walletOperationDto.getOperation();
+        String operationType = walletOperationDto.getOperationType();
        if (OperationType.DEPOSIT.toString().equals(operationType)) {
-           addDeposit(walletOperationDto.getId(), walletOperationDto.getAmount());
-       } else if (OperationType.DEPOSIT.toString().equals(operationType)) {
-           withdrawDeposit(walletOperationDto.getId(), walletOperationDto.getAmount());
+           addDeposit(walletOperationDto.getWalletId(), walletOperationDto.getAmount());
+       } else if (OperationType.WITHDRAW.toString().equals(operationType)) {
+           withdrawDeposit(walletOperationDto.getWalletId(), walletOperationDto.getAmount());
        } else
            throw new InvalidRequestException("Incorrect type of operation");
     }

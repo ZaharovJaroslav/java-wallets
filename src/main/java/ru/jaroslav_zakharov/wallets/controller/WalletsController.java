@@ -16,7 +16,7 @@ import ru.jaroslav_zakharov.wallets.dto.WalletOperationDto;
 import ru.jaroslav_zakharov.wallets.service.WalletsService;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("/api/v1")
 @Slf4j
 @RequiredArgsConstructor
 public class WalletsController {
@@ -28,7 +28,7 @@ public class WalletsController {
         walletsService.operationTypeValidation(walletOperationDto);
     }
 
-    @GetMapping("wallets/")
+    @GetMapping("/wallets/{walletId}")
     @ResponseStatus(HttpStatus.OK)
     public WalletBalanceDto getBalance(@PathVariable Long walletId) {
         return walletsService.getBalanceById(walletId);
