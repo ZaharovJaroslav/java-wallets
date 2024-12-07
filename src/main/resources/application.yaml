@@ -3,18 +3,16 @@ Server :
 spring:
   application.name: Wallets
   main.banner-mode: OFF
+  liquibase: false
   sql:
     init:
       mode: always
   jpa:
     hibernate:
-
       ddl-auto: none
     show-sql: true
-
   datasource:
     username: postgres
     password: 12345
     url: jdbc:postgresql://localhost:5432/postgres
     driver-class-name: org.postgresql.Driver
-

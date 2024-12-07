@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create wallet
+      author: Jaroslav Zakharov
+      changes:
+        - createTable:
+            tableName: wallets
+            columns:
+            - column:
+                name: wallet_id
+                type: bigint
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+            - column:
+                name: wallet_balance
+                type: double
