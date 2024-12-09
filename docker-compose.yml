@@ -1,0 +1,21 @@
+services:
+  wallets-server:
+    container_name: wallets-service
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+       - SPRING_DATASOURCE_URL=jdbc:postgresql://wallets-db:5432/postgres
+       - SPRING_DATASOURCE_USERNAME=user
+       - SPRING_DATASOURCE_PASSWORD=password
+
+  wallets-db:
+    image: postgres:17
+    container_name: wallets-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=user
+      - POSTGRES_DB=postgres
